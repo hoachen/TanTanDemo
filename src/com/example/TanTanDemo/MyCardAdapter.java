@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,13 +15,12 @@ import java.util.List;
  * @modify:
  */
 public class MyCardAdapter extends BaseAdapter {
-    private List<CardModel> mlist = new ArrayList<CardModel>();
+    private List<CardModel> mlist;
     private LayoutInflater inflater;
 
     public MyCardAdapter(Context context, List<CardModel> list) {
-        mlist.addAll(list);
-        inflater=LayoutInflater.from(context);
-
+        mlist = list;
+        inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -44,7 +42,7 @@ public class MyCardAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.layout_card, parent,false);
+            convertView = inflater.inflate(R.layout.layout_card, parent, false);
             holder = new ViewHolder();
             holder.tv_name = (TextView) convertView.findViewById(R.id.tv_name);
             holder.tv_age = (TextView) convertView.findViewById(R.id.tv_age);

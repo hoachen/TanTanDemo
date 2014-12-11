@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
+import android.widget.ImageView;
 
 /**
  * Created by dionysis_lorentzos on 5/8/14
@@ -17,7 +18,8 @@ import android.view.animation.OvershootInterpolator;
 
 
 public class FlingCardListener implements View.OnTouchListener {
-
+    private ImageView iv_like;
+    private ImageView iv_dislike;
     private final float objectX;
     private final float objectY;
     private final int objectH;
@@ -63,6 +65,8 @@ public class FlingCardListener implements View.OnTouchListener {
         this.parentWidth = ((ViewGroup) frame.getParent()).getWidth();
         this.BASE_ROTATION_DEGREES = rotation_degrees;
         this.mFlingListener = flingListener;
+        iv_like = (ImageView) frame.findViewById(R.id.iv_like);
+        iv_dislike = (ImageView) frame.findViewById(R.id.iv_dislike);
     }
 
 
@@ -94,6 +98,7 @@ public class FlingCardListener implements View.OnTouchListener {
                 } else {
                     touchPosition = TOUCH_BELOW;
                 }
+
 
                 break;
 
@@ -141,6 +146,13 @@ public class FlingCardListener implements View.OnTouchListener {
                     rotation = -rotation;
                 }
 
+                if(aPosX+objectW/2 <halfWidth){
+                    iv_dislike.setVisibility(View.VISIBLE);
+                    iv_like.setVisibility(View.INVISIBLE);
+                }else {
+                    iv_like.setVisibility(View.VISIBLE);
+                    iv_dislike.setVisibility(View.INVISIBLE);
+                }
                 //in this area would be code for doing something with the view as the frame moves.
                 frame.setX(aPosX);
                 frame.setY(aPosY);

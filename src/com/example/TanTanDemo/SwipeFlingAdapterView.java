@@ -35,7 +35,7 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
     private View mActiveCard = null;
     private OnItemClickListener mOnItemClickListener;
     private FlingCardListener flingCardListener;
-
+    private Context context;
 
     public SwipeFlingAdapterView(Context context) {
         this(context, null);
@@ -47,7 +47,7 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
 
     public SwipeFlingAdapterView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-
+        this.context=context;
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SwipeFlingAdapterView, defStyle, 0);
         MAX_VISIBLE = a.getInt(R.styleable.SwipeFlingAdapterView_max_visible, MAX_VISIBLE);
         MIN_ADAPTER_STACK = a.getInt(R.styleable.SwipeFlingAdapterView_min_adapter_stack, MIN_ADAPTER_STACK);
@@ -136,7 +136,7 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void makeAndAddView(View child,int index) {
 
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) child.getLayoutParams();
+        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) child.getLayoutParams();
 //        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) child.getLayoutParams();
         addViewInLayout(child, 0, lp, true);
 
@@ -292,7 +292,7 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
 
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new FrameLayout.LayoutParams(getContext(), attrs);
+        return new LinearLayout.LayoutParams(getContext(), attrs);
     }
 
 

@@ -8,14 +8,37 @@
               android:layout_gravity="center"
               android:layout_height="320dp">
 
-    <ImageView
-        android:id="@+id/iv_image"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scaleType="centerCrop"
-        android:src="@drawable/a"
-        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/a"
+            />
+
+        <ImageView
+            android:id="@+id/iv_dislike"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/swipe_dislike_button"/>
+
+        <ImageView
+            android:id="@+id/iv_like"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:src="@drawable/swipe_like_button"/>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

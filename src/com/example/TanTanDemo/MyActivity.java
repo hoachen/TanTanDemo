@@ -83,6 +83,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
                 al.add(new CardModel("name" + i, 24, 2));
+                al.add(new CardModel("name" + i+1, 24, 2));
                 mAdapter.notifyDataSetChanged();
                 Log.d("LIST", "notified");
                 i++;
